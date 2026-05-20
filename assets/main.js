@@ -1,15 +1,15 @@
 /* ============================================
-   MARK AJEKEVWODA - PORTFOLIO SCRIPTS
+   MARK AJEKEVWODA — PORTFOLIO SCRIPTS
+   Filtering + Scroll Reveal
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Project filtering
+  // ── Project Filtering ──
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Update active button
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       projectCards.forEach(card => {
         const categories = card.dataset.category || '';
-        
         if (filter === 'all' || categories.includes(filter)) {
           card.classList.remove('hidden');
           card.style.display = '';
@@ -29,55 +28,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Smooth scroll for nav links
+  // ── Smooth Scroll ──
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 
-  // Nav background on scroll
-  const nav = document.querySelector('.nav');
+  // ── Scroll Reveal (IntersectionObserver) ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  // ── Navbar glass effect on scroll ──
+  const nav = document.querySelector('.nav-inner');
   let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-      nav.style.background = 'rgba(5, 5, 7, 0.95)';
-    } else {
-      nav.style.background = 'rgba(5, 5, 7, 0.85)';
-    }
-    
-    lastScroll = currentScroll;
-  });
-
-  // Animate cards on scroll (simple intersection observer)
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+    const current = window.pageYOffset;
+    if (nav) {
+      if (current > 60) {
+        nav.style.background = 'rgba(247,246,242,0.92)';
+        nav.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)';
+      } else {
+        nav.style.background = 'rgba(247,246,242,0.72)';
+        nav.style.boxShadow = '0 8px 30px rgba(0,0,0,0.06)';
       }
-    });
-  }, observerOptions);
-
-  projectCards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = `opacity 0.5s ease ${index * 0.03}s, transform 0.5s ease ${index * 0.03}s`;
-    observer.observe(card);
+    }
+    lastScroll = current;
   });
 });
