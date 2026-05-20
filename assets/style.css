@@ -843,7 +843,56 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================
-   SCROLL REVEAL ANIMATIONS
+   TYPEWRITER EFFECT
+   ============================================ */
+
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid var(--brand);
+  white-space: nowrap;
+  animation: typing 2.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  display: inline-block;
+  max-width: 100%;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--brand) }
+}
+
+/* ============================================
+   3D CARD TILT
+   ============================================ */
+
+.project-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.015);
+}
+
+/* ============================================
+   FLOATING ANIMATION
+   ============================================ */
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ============================================
+   TEXT REVEAL STAGGER
    ============================================ */
 
 .reveal {
