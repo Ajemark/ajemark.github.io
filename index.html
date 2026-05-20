@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/style.css?v=2">
+  <link rel="stylesheet" href="assets/style.css?v=3">
 </head>
 <body>
 
@@ -60,7 +60,6 @@
       </p>
     </div>
 
-    <!-- Orbital decoration -->
     <div class="hero-orbit" aria-hidden="true">
       <div class="orbit-ring">
         <span class="orbit-dot"></span>
@@ -77,7 +76,7 @@
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat-item reveal reveal-delay-1">
-        <div class="stat-number">30<span>+</span></div>
+        <div class="stat-number">29<span>+</span></div>
         <div class="stat-label">Projects Delivered</div>
       </div>
       <div class="stat-item reveal reveal-delay-2">
@@ -207,7 +206,7 @@
     <div class="section-header reveal">
       <div class="eyebrow">Portfolio</div>
       <h2 class="section-title">Projects that moved the <span class="gradient-text">needle</span>.</h2>
-      <p class="section-desc">Due to NDAs, most enterprise code is private. Code access and live demos are available upon request. Case studies are published for select projects.</p>
+      <p class="section-desc">Due to NDAs, most enterprise code is private. Code access and live demos are available upon request. All case studies are consolidated in one repo.</p>
     </div>
 
     <div class="filter-bar reveal">
@@ -219,6 +218,7 @@
       <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
       <button class="filter-btn" data-filter="mobile">Mobile</button>
       <button class="filter-btn" data-filter="fintech">Fintech</button>
+      <button class="filter-btn" data-filter="3d">3D</button>
     </div>
 
     <div class="projects-grid">
@@ -242,7 +242,7 @@
           <span class="tech-tag">Docker</span>
         </div>
         <div class="project-actions">
-          <a href="https://github.com/Ajemark/portalpad-case-study" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
+          <a href="https://github.com/Ajemark/case-studies/blob/main/portalpad.md" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
           <span class="project-link link-nda">🔒 Demo on Request</span>
         </div>
       </div>
@@ -265,7 +265,7 @@
           <span class="tech-tag">Docusaurus</span>
         </div>
         <div class="project-actions">
-          <a href="https://github.com/Ajemark/kim-bot-suite-case-study" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
+          <a href="https://github.com/Ajemark/case-studies/blob/main/kim.md" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
           <span class="project-link link-nda">🔒 Demo on Request</span>
         </div>
       </div>
@@ -289,7 +289,7 @@
           <span class="tech-tag">Docker</span>
         </div>
         <div class="project-actions">
-          <a href="https://github.com/zeroclaw-labs/zeroclaw" target="_blank" rel="noopener" class="project-link link-github">GitHub →</a>
+          <a href="https://github.com/Ajemark/reply" target="_blank" rel="noopener" class="project-link link-github">GitHub →</a>
         </div>
       </div>
 
@@ -404,7 +404,7 @@
           <span class="tech-tag">PostgreSQL</span>
         </div>
         <div class="project-actions">
-          <a href="https://github.com/Ajemark/ourconnected-case-study" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
+          <a href="https://github.com/Ajemark/case-studies/blob/main/ourconnected.md" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
           <span class="project-link link-nda">🔒 Demo on Request</span>
         </div>
       </div>
@@ -613,12 +613,12 @@
       </div>
 
       <!-- Zend Bot -->
-      <div class="project-card reveal reveal-delay-2" data-category="ai">
+      <div class="project-card reveal reveal-delay-2" data-category="ai fintech">
         <div class="project-header">
           <h3 class="project-name">Zend Bot</h3>
-          <div class="project-badges"><span class="badge badge-ai">AI</span></div>
+          <div class="project-badges"><span class="badge badge-ai">AI</span><span class="badge badge-fintech">Fintech</span></div>
         </div>
-        <p class="project-desc">Bot automation for Zend Money. Multi-platform integration, automated workflows, and financial service orchestration.</p>
+        <p class="project-desc">Bot automation for Zend Money fintech. Multi-platform integration, automated workflows, KYC onboarding, balance checks, and financial service orchestration.</p>
         <div class="project-metrics">
           <span class="metric">~84 commits</span>
           <span class="metric">Automation</span>
@@ -626,9 +626,10 @@
         <div class="project-tech">
           <span class="tech-tag">TypeScript</span>
           <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">PostgreSQL</span>
         </div>
         <div class="project-actions">
-          <a href="https://github.com/Ajemark/zend-bot-case-study" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
+          <a href="https://github.com/Ajemark/case-studies/blob/main/zend.md" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
           <a href="https://github.com/ZendMoney/Zend_bot" target="_blank" rel="noopener" class="project-link link-github">GitHub →</a>
         </div>
       </div>
@@ -676,71 +677,30 @@
       </div>
 
       <!-- Sastreria -->
-      <div class="project-card reveal reveal-delay-2" data-category="fullstack">
+      <div class="project-card reveal reveal-delay-2" data-category="fullstack 3d">
         <div class="project-header">
           <h3 class="project-name">Sastreria Manuel Fernandez</h3>
           <div class="project-badges"><span class="badge badge-fullstack">Full-Stack</span></div>
         </div>
-        <p class="project-desc">Tailoring business website for RyvoDigital client. Custom product catalog, appointment booking, and brand showcase.</p>
+        <p class="project-desc">Tailoring business website for RyvoDigital client. Custom product catalog, appointment booking, brand showcase. Built with 3D product visualization.</p>
         <div class="project-metrics">
           <span class="metric">~130 commits</span>
           <span class="metric">Client Project</span>
+          <span class="metric">3D</span>
         </div>
         <div class="project-tech">
           <span class="tech-tag">Next.js</span>
           <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">3D</span>
         </div>
         <div class="project-actions">
-          <a href="https://github.com/Ajemark/sastreria-case-study" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
+          <a href="https://github.com/Ajemark/case-studies/blob/main/sastreria.md" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
           <a href="https://github.com/RyvoDigital/sastreria-manuel-fernandez" target="_blank" rel="noopener" class="project-link link-github">GitHub →</a>
         </div>
       </div>
 
-      <!-- Chess -->
-      <div class="project-card reveal" data-category="game fullstack">
-        <div class="project-header">
-          <h3 class="project-name">Chess Multiplayer</h3>
-          <div class="project-badges"><span class="badge badge-game">Gaming</span><span class="badge badge-fullstack">Full-Stack</span></div>
-        </div>
-        <p class="project-desc">Online multiplayer chess with Next.js, Express, Socket.io, and PostgreSQL. Real-time gameplay, move validation, game state persistence.</p>
-        <div class="project-metrics">
-          <span class="metric">Public Repo</span>
-          <span class="metric">Real-time</span>
-        </div>
-        <div class="project-tech">
-          <span class="tech-tag">Next.js</span>
-          <span class="tech-tag">Express</span>
-          <span class="tech-tag">Socket.io</span>
-          <span class="tech-tag">PostgreSQL</span>
-        </div>
-        <div class="project-actions">
-          <a href="https://github.com/Ajemark/chess" target="_blank" rel="noopener" class="project-link link-github">GitHub →</a>
-        </div>
-      </div>
-
-      <!-- Candy Next -->
-      <div class="project-card reveal reveal-delay-1" data-category="game">
-        <div class="project-header">
-          <h3 class="project-name">Candy Next</h3>
-          <div class="project-badges"><span class="badge badge-game">Gaming</span></div>
-        </div>
-        <p class="project-desc">Candy Crush match-3 game built in Next.js. Game state management, score tracking, responsive design.</p>
-        <div class="project-metrics">
-          <span class="metric">Public Repo</span>
-          <span class="metric">Next.js Game</span>
-        </div>
-        <div class="project-tech">
-          <span class="tech-tag">Next.js</span>
-          <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">Tailwind</span>
-        </div>
-        <div class="project-actions">
-          <a href="https://github.com/Ajemark/candy-next" target="_blank" rel="noopener" class="project-link link-github">GitHub →</a>
-        </div>
-      </div>
-
       <!-- Nutraspices -->
-      <div class="project-card reveal reveal-delay-2" data-category="fullstack">
+      <div class="project-card reveal" data-category="fullstack">
         <div class="project-header">
           <h3 class="project-name">Nutraspices</h3>
           <div class="project-badges"><span class="badge badge-fullstack">Full-Stack</span></div>
@@ -760,7 +720,7 @@
       </div>
 
       <!-- Mental Maze -->
-      <div class="project-card reveal" data-category="game web3">
+      <div class="project-card reveal reveal-delay-1" data-category="game web3">
         <div class="project-header">
           <h3 class="project-name">Mental Maze</h3>
           <div class="project-badges"><span class="badge badge-game">Gaming</span><span class="badge badge-web3">Web3</span></div>
@@ -776,13 +736,13 @@
           <span class="tech-tag">NEAR</span>
         </div>
         <div class="project-actions">
-          <a href="https://github.com/Ajemark/mental-maze-case-study" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
+          <a href="https://github.com/Ajemark/case-studies/blob/main/mental-maze.md" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
           <span class="project-link link-nda">🔒 Demo on Request</span>
         </div>
       </div>
 
       <!-- Blue Norva -->
-      <div class="project-card reveal reveal-delay-1" data-category="web3">
+      <div class="project-card reveal reveal-delay-2" data-category="web3">
         <div class="project-header">
           <h3 class="project-name">Blue Norva</h3>
           <div class="project-badges"><span class="badge badge-web3">Web3</span></div>
@@ -797,13 +757,13 @@
           <span class="tech-tag">Solidity</span>
         </div>
         <div class="project-actions">
-          <a href="https://github.com/Ajemark/blue-norva-case-study" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
+          <a href="https://github.com/Ajemark/case-studies/blob/main/blue-norva.md" target="_blank" rel="noopener" class="project-link link-case">Case Study →</a>
           <span class="project-link link-nda">🔒 Demo on Request</span>
         </div>
       </div>
 
       <!-- NovaSpire -->
-      <div class="project-card reveal reveal-delay-2" data-category="web3 ai">
+      <div class="project-card reveal" data-category="web3 ai">
         <div class="project-header">
           <h3 class="project-name">NovaSpire</h3>
           <div class="project-badges"><span class="badge badge-web3">Web3</span><span class="badge badge-ai">AI</span></div>
@@ -826,7 +786,7 @@
       </div>
 
       <!-- Artreus -->
-      <div class="project-card reveal" data-category="web3">
+      <div class="project-card reveal reveal-delay-1" data-category="web3">
         <div class="project-header">
           <h3 class="project-name">Artreus</h3>
           <div class="project-badges"><span class="badge badge-web3">Web3</span></div>
@@ -846,29 +806,51 @@
         </div>
       </div>
 
-      <!-- Charity -->
-      <div class="project-card reveal reveal-delay-1" data-category="web3">
+      <!-- AeroDash -->
+      <div class="project-card reveal reveal-delay-2" data-category="3d">
         <div class="project-header">
-          <h3 class="project-name">Charity On Blockchain</h3>
-          <div class="project-badges"><span class="badge badge-web3">Web3</span></div>
+          <h3 class="project-name">AeroDash</h3>
+          <div class="project-badges"><span class="badge badge-fullstack">3D</span></div>
         </div>
-        <p class="project-desc">Decentralized charity donation platform. Transparent fund tracking, donor accountability, and smart contract-based distribution for nonprofits.</p>
+        <p class="project-desc">3D dashboard application with interactive data visualization. Real-time metrics display with immersive UI components.</p>
         <div class="project-metrics">
-          <span class="metric">Public Repo</span>
-          <span class="metric">Social Impact</span>
+          <span class="metric">3D Dashboard</span>
+          <span class="metric">Interactive</span>
         </div>
         <div class="project-tech">
-          <span class="tech-tag">HTML</span>
-          <span class="tech-tag">Web3</span>
-          <span class="tech-tag">Solidity</span>
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">3D</span>
+          <span class="tech-tag">TypeScript</span>
         </div>
         <div class="project-actions">
-          <a href="https://github.com/Ajemark/Charity-On-Blockchain" target="_blank" rel="noopener" class="project-link link-github">GitHub →</a>
+          <a href="https://github.com/Ajemark/aerodash" target="_blank" rel="noopener" class="project-link link-github">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Ascension DAO -->
+      <div class="project-card reveal" data-category="game web3">
+        <div class="project-header">
+          <h3 class="project-name">Ascension Protocol</h3>
+          <div class="project-badges"><span class="badge badge-game">Gaming</span><span class="badge badge-web3">Web3</span></div>
+        </div>
+        <p class="project-desc">Cultivation metaverse where real-world habits fuel progression through realms. Body tempering via exercise, mental refinement via learning, spirit condensation via mindfulness. Spirit beasts, territory ownership, PvP sect warfare.</p>
+        <div class="project-metrics">
+          <span class="metric">~14 commits</span>
+          <span class="metric">Metaverse</span>
+          <span class="metric">Habit RPG</span>
+        </div>
+        <div class="project-tech">
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Web3</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/Ajemark/ascensiondao" target="_blank" rel="noopener" class="project-link link-github">GitHub →</a>
         </div>
       </div>
 
       <!-- TowerSwap -->
-      <div class="project-card reveal reveal-delay-2" data-category="defi web3">
+      <div class="project-card reveal reveal-delay-1" data-category="defi web3">
         <div class="project-header">
           <h3 class="project-name">TowerSwap Interface</h3>
           <div class="project-badges"><span class="badge badge-defi">DeFi</span><span class="badge badge-web3">Web3</span></div>
@@ -917,6 +899,6 @@
     <p>© 2026 Mark Ajekevwoda. Full-Stack & Blockchain Developer.</p>
   </footer>
 
-  <script src="assets/main.js?v=2"></script>
+  <script src="assets/main.js?v=3"></script>
 </body>
 </html>
