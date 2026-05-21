@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Use Cases — Mark Ajekevwoda</title>
+  <meta name="description" content="Detailed case studies of Web2, Web3, AI, and DeFi projects built by Mark Ajekevwoda.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/style.css?v=5">
+  <style>
+    :root {
+      --cream: #faf8f3;
+      --espresso: #1c1917;
+      --brand: #ea580c;
+      --brand-light: #fb923c;
+      --muted: #78716c;
+      --surface: #ffffff;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--espresso); line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+
+    /* Nav */
+    .nav { position:sticky; top:0; z-index:100; padding:1rem 0; backdrop-filter:blur(12px); background:rgba(250,248,243,0.85); border-bottom:1px solid rgba(0,0,0,0.06); }
+    .nav-inner { max-width:1200px; margin:0 auto; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; color:var(--espresso); display:flex; align-items:center; gap:0.5rem; }
+    .nav-logo img { width:32px; height:32px; border-radius:50%; object-fit:cover; border:2px solid var(--brand); }
+    .nav-links { display:flex; gap:1.5rem; }
+    .nav-link { font-size:0.875rem; font-weight:500; color:var(--muted); transition:color 0.2s; }
+    .nav-link:hover { color:var(--brand); }
+
+    /* Hero */
+    .uc-hero { padding:4rem 1.5rem 2rem; max-width:800px; margin:0 auto; text-align:center; }
+    .uc-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:2.5rem; font-weight:700; margin-bottom:0.75rem; }
+    .uc-hero p { color:var(--muted); font-size:1.125rem; }
+    .gradient-text { background:linear-gradient(135deg, var(--brand), var(--brand-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+
+    /* TOC */
+    .uc-toc { max-width:1200px; margin:2rem auto; padding:0 1.5rem; }
+    .uc-toc-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:0.75rem; }
+    .uc-toc-item { display:block; padding:0.75rem 1rem; background:var(--surface); border-radius:12px; border:1px solid rgba(0,0,0,0.06); font-size:0.875rem; font-weight:500; transition:all 0.2s; }
+    .uc-toc-item:hover { border-color:var(--brand); transform:translateY(-2px); box-shadow:var(--shadow); }
+    .uc-toc-item .num { display:inline-block; width:24px; height:24px; line-height:24px; text-align:center; background:var(--brand); color:#fff; border-radius:50%; font-size:0.75rem; margin-right:0.5rem; }
+
+    /* Case Study Section */
+    .uc-section { max-width:900px; margin:0 auto; padding:4rem 1.5rem; border-bottom:1px solid rgba(0,0,0,0.08); scroll-margin-top:80px; }
+    .uc-section:last-child { border-bottom:none; }
+    .uc-header { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+    .uc-header h2 { font-family:'Space Grotesk',sans-serif; font-size:1.75rem; font-weight:700; }
+    .uc-badges { display:flex; gap:0.5rem; flex-wrap:wrap; }
+    .uc-badge { font-size:0.75rem; font-weight:600; padding:0.25rem 0.75rem; border-radius:999px; text-transform:uppercase; letter-spacing:0.02em; }
+    .uc-badge-web3 { background:rgba(234,88,12,0.1); color:var(--brand); border:1px solid rgba(234,88,12,0.2); }
+    .uc-badge-web2 { background:rgba(99,102,241,0.1); color:#4f46e5; border:1px solid rgba(99,102,241,0.2); }
+    .uc-badge-ai { background:rgba(168,85,247,0.1); color:#9333ea; border:1px solid rgba(168,85,247,0.2); }
+    .uc-badge-game { background:rgba(59,130,246,0.1); color:#2563eb; border:1px solid rgba(59,130,246,0.2); }
+    .uc-badge-defi { background:rgba(16,185,129,0.1); color:#059669; border:1px solid rgba(16,185,129,0.2); }
+    .uc-badge-fintech { background:rgba(245,158,11,0.1); color:#d97706; border:1px solid rgba(245,158,11,0.2); }
+    .uc-badge-healthcare { background:rgba(236,72,153,0.1); color:#db2777; border:1px solid rgba(236,72,153,0.2); }
+    .uc-badge-energy { background:rgba(16,185,129,0.1); color:#059669; border:1px solid rgba(16,185,129,0.2); }
+    .uc-badge-ecommerce { background:rgba(99,102,241,0.1); color:#4f46e5; border:1px solid rgba(99,102,241,0.2); }
+    .uc-badge-social { background:rgba(14,165,233,0.1); color:#0284c7; border:1px solid rgba(14,165,233,0.2); }
+    .uc-badge-enterprise { background:rgba(99,102,241,0.1); color:#4f46e5; border:1px solid rgba(99,102,241,0.2); }
+    .uc-badge-proptech { background:rgba(139,92,246,0.1); color:#7c3aed; border:1px solid rgba(139,92,246,0.2); }
+    .uc-badge-automation { background:rgba(20,184,166,0.1); color:#0d9488; border:1px solid rgba(20,184,166,0.2); }
+    .uc-badge-metaverse { background:rgba(244,63,94,0.1); color:#e11d48; border:1px solid rgba(244,63,94,0.2); }
+    .uc-badge-fullstack { background:rgba(120,113,108,0.1); color:#57534e; border:1px solid rgba(120,113,108,0.2); }
+
+    .uc-meta { display:flex; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.5rem; font-size:0.875rem; color:var(--muted); }
+    .uc-meta span { display:flex; align-items:center; gap:0.35rem; }
+
+    .uc-block { margin-bottom:1.5rem; }
+    .uc-block h3 { font-size:1rem; font-weight:600; margin-bottom:0.5rem; color:var(--espresso); }
+    .uc-block p { color:var(--muted); font-size:0.9375rem; }
+    .uc-block ul { margin-left:1.25rem; color:var(--muted); font-size:0.9375rem; }
+    .uc-block ul li { margin-bottom:0.35rem; }
+
+    .uc-arch { background:#f5f5f4; border-radius:12px; padding:1rem 1.25rem; font-family:'SF Mono',monospace; font-size:0.8125rem; color:#44403c; line-height:1.7; white-space:pre-wrap; margin-bottom:1.5rem; }
+
+    .uc-tech { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+    .uc-tech span { font-size:0.8125rem; font-weight:500; padding:0.35rem 0.75rem; background:#f5f5f4; border-radius:8px; color:#57534e; }
+
+    .uc-links { display:flex; gap:1rem; flex-wrap:wrap; }
+    .uc-links a { font-size:0.875rem; font-weight:600; color:var(--brand); transition:opacity 0.2s; }
+    .uc-links a:hover { opacity:0.8; }
+
+    .uc-cta { text-align:center; padding:4rem 1.5rem; background:linear-gradient(135deg, rgba(234,88,12,0.05), rgba(251,146,60,0.05)); }
+    .uc-cta h2 { font-family:'Space Grotesk',sans-serif; font-size:1.5rem; margin-bottom:0.5rem; }
+    .uc-cta p { color:var(--muted); margin-bottom:1.5rem; }
+    .uc-cta a { display:inline-block; padding:0.75rem 1.5rem; background:var(--brand); color:#fff; border-radius:999px; font-weight:600; font-size:0.875rem; }
+
+    @media (max-width:640px) {
+      .uc-hero h1 { font-size:1.75rem; }
+      .uc-header h2 { font-size:1.375rem; }
+      .uc-toc-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="assets/headshot.jpg" alt="MA"> Mark Ajekevwoda</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">← Back to Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="uc-hero">
+    <h1>Project <span class="gradient-text">Use Cases</span></h1>
+    <p>Deep dives into architecture, challenges, solutions, and outcomes for every project.</p>
+  </section>
+
+  <section class="uc-toc">
+    <div class="uc-toc-grid" id="toc">
+      <!-- TOC populated by JS -->
+    </div>
+  </section>
+
+  <main id="cases">
+    <!-- Case studies populated by JS -->
+  </main>
+
+  <section class="uc-cta">
+    <h2>Want to work together?</h2>
+    <p>Open to remote opportunities worldwide.</p>
+    <a href="https://t.me/ajemark" target="_blank">Message on Telegram →</a>
+  </section>
+
+  <script>
+    const caseStudies = [
+      {
+        id: 'portalpad',
+        name: 'PortalPad',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Technical Lead',
+        status: 'Live',
+        overview: 'Multi-chain Web3 launchpad for token launches across NEAR and EVM with deterministic bonding curves. 7 repos: frontend, backend, Rust contracts, indexer, and NovaSpire Telegram bot.',
+        challenge: 'Launchpads need deterministic pricing, anti-bot protection, and cross-chain compatibility while maintaining gas efficiency and fair token distribution.',
+        solution: 'Built a complete multi-chain launchpad ecosystem with deterministic bonding curve tokenomics, Rust smart contracts on NEAR, EVM compatibility, and a real-time indexer.',
+        architecture: `User Frontend (Next.js)
+    ↓
+API Gateway (Node.js)
+    ↓
+Rust Smart Contracts (NEAR)
+    ↓
+EVM Contracts (Solidity)
+    ↓
+Indexer (PostgreSQL + Redis)`,
+        tech: ['Next.js', 'Rust', 'Solidity', 'PostgreSQL', 'Redis', 'Node.js'],
+        features: ['Deterministic bonding curves', 'Anti-bot protection', 'Cross-chain compatibility', 'Real-time indexer', 'Telegram bot integration'],
+        metrics: ['~298 commits', '7 repos', 'NEAR + EVM'],
+        links: { live: 'https://portalpad.fun', github: null, private: true }
+      },
+      {
+        id: 'kim',
+        name: 'KIM Bot Suite',
+        category: 'ai',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'AI-driven automation suite for the TON ecosystem. Telegram bot (544 commits), Discord gate, API service, and Docusaurus documentation portal.',
+        challenge: 'TON ecosystem needed automated tooling for community management, token gating, and AI-powered interactions across Telegram and Discord.',
+        solution: 'Built a multi-platform bot suite with AI automation, wallet verification, role management, and comprehensive documentation.',
+        architecture: `Telegram / Discord APIs
+    ↓
+Bot Engine (TypeScript)
+    ↓
+AI Service Layer
+    ↓
+TON Blockchain
+    ↓
+PostgreSQL + Redis`,
+        tech: ['TypeScript', 'Node.js', 'Docusaurus', 'Telegram Bot API', 'Discord.js', 'TON SDK'],
+        features: ['AI-powered responses', 'Wallet verification', 'Token-gated access', 'Role management', 'Auto-moderation'],
+        metrics: ['~636 commits', 'Multi-platform', 'TON'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'reply-cash',
+        name: 'Reply Cash / Zeroclaw',
+        category: 'ai',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Massive Rust-based AI automation platform with Solana integration. 951-commit Rust core with multi-crate architecture, Python microservices, Docker, and comprehensive docs.',
+        challenge: 'Building a high-performance AI automation platform that integrates with Solana blockchain while maintaining reliability and scalability.',
+        solution: 'Architected a multi-crate Rust core with Python microservices, containerized with Docker, and comprehensive documentation.',
+        architecture: `Rust Core (Multi-crate)
+    ↓
+Python Microservices
+    ↓
+Solana RPC
+    ↓
+PostgreSQL
+    ↓
+Docker Orchestration`,
+        tech: ['Rust', 'Python', 'Solana', 'Docker', 'PostgreSQL'],
+        features: ['Multi-crate architecture', 'AI automation', 'Solana integration', 'Docker containerization', 'Comprehensive docs'],
+        metrics: ['~2,014 commits', 'Rust Core', 'Solana'],
+        links: { live: null, github: 'https://github.com/Ajemark/reply', private: false }
+      },
+      {
+        id: 'solvium',
+        name: 'Solvium',
+        category: 'game',
+        niche: 'gaming',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'The first puzzle game on NEAR Blockchain. AI-powered quiz generation via Google Gemini / LangChain, multi-chain rewards (NEAR, Solana, TON), and Telegram bot integration.',
+        challenge: 'Creating an engaging puzzle game on blockchain with fair reward distribution and AI-generated content.',
+        solution: 'Built the first puzzle game on NEAR with AI-powered quiz generation, multi-chain rewards, and Telegram integration.',
+        architecture: `Game Frontend (React)
+    ↓
+Game API (Node.js)
+    ↓
+AI Engine (Gemini / LangChain)
+    ↓
+NEAR / Solana / TON Contracts
+    ↓
+Telegram Bot`,
+        tech: ['React', 'Node.js', 'Google Gemini', 'LangChain', 'NEAR', 'Solana', 'TON'],
+        features: ['AI quiz generation', 'Multi-chain rewards', 'Telegram bot', 'Puzzle mechanics', 'Leaderboard'],
+        metrics: ['First on NEAR', 'Multi-chain', 'AI-powered'],
+        links: { live: 'https://t.me/Solvium_bot', github: 'https://github.com/Solvium/SolviumAI', private: false }
+      },
+      {
+        id: 'badger-games',
+        name: 'Badger Games',
+        category: 'game',
+        niche: 'gaming',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Multi-game brain training platform: Wordle, Sliding Puzzle, Quiz. RPG progression, XP/coin economy, daily streaks, and Gemini AI-powered dynamic quiz generation. TON integration.',
+        challenge: 'Building a multi-game platform with progression systems, AI-generated content, and blockchain integration.',
+        solution: 'Created a brain training platform with multiple games, RPG progression, AI quizzes, and TON blockchain rewards.',
+        architecture: `Next.js Frontend
+    ↓
+Game API
+    ↓
+AI Quiz Engine (Gemini)
+    ↓
+TON Blockchain
+    ↓
+PostgreSQL`,
+        tech: ['Next.js', 'TypeScript', 'Google Gemini', 'TON', 'PostgreSQL'],
+        features: ['3 brain games', 'RPG progression', 'AI quizzes', 'XP/coin economy', 'Daily streaks', 'TON rewards'],
+        metrics: ['~219 commits', '3 Games', 'AI Quizzes'],
+        links: { live: 'https://badger-bot.vercel.app', github: 'https://github.com/Ajemark/badger_buy_bot', private: false }
+      },
+      {
+        id: 'snipey',
+        name: 'Snipey App',
+        category: 'ai',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'AI-powered token sniping and trading analysis platform. Real-time DexScreener scraping, automated trading signals, and multi-chain support.',
+        challenge: 'Token traders need real-time data and automated signals to act before markets move.',
+        solution: 'Built an AI trading platform with real-time scraping, automated signals, and multi-chain support.',
+        architecture: `Frontend Dashboard
+    ↓
+Trading Engine
+    ↓
+DexScreener Scraper
+    ↓
+Multi-chain RPCs
+    ↓
+Alert System`,
+        tech: ['TypeScript', 'Python', 'Redis', 'WebSockets', 'Solana', 'EVM'],
+        features: ['Real-time scraping', 'AI trading signals', 'Multi-chain support', 'Automated alerts', 'Portfolio tracking'],
+        metrics: ['97% code reduction', '$6K+/yr savings', 'Sub-5s execution'],
+        links: { live: 'https://snipey.vip', github: null, private: true }
+      },
+      {
+        id: 'lumey-energy',
+        name: 'Lumey Energy',
+        category: 'fullstack',
+        niche: 'energy',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'E-commerce platform for renewable energy products. Product catalog, checkout flow, and CMS-driven content.',
+        challenge: 'Building a modern e-commerce experience for renewable energy products with CMS-driven content.',
+        solution: 'Developed a full-stack e-commerce platform with product catalog, checkout, and content management.',
+        architecture: `Next.js Frontend
+    ↓
+CMS / API
+    ↓
+Stripe Payments
+    ↓
+PostgreSQL`,
+        tech: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL', 'CMS'],
+        features: ['Product catalog', 'Checkout flow', 'CMS content', 'Responsive design'],
+        metrics: ['Live e-commerce', 'Energy niche'],
+        links: { live: 'https://www.lumeyenergy.com', github: 'https://github.com/Lumey-Energy/lumey_energy_nextjs', private: false }
+      },
+      {
+        id: 'ourconnected',
+        name: 'OurConnected Next',
+        category: 'fullstack',
+        niche: 'enterprise',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Enterprise SaaS platform for business connectivity and collaboration. Next.js frontend with scalable backend architecture.',
+        challenge: 'Enterprises need secure, scalable collaboration tools with modern UX.',
+        solution: 'Built a Next.js-based SaaS platform with enterprise-grade security and scalability.',
+        architecture: `Next.js Frontend
+    ↓
+API Layer
+    ↓
+Database
+    ↓
+Auth / Security`,
+        tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Auth0'],
+        features: ['Enterprise SaaS', 'Collaboration tools', 'Secure auth', 'Scalable architecture'],
+        metrics: ['Enterprise grade', 'SaaS platform'],
+        links: { live: 'https://ourconnected.com', github: null, private: true }
+      },
+      {
+        id: 'gdk-contracts',
+        name: 'GDK Contracts',
+        category: 'defi',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Staking and DeFi protocol smart contracts for the GDK ecosystem. Bonding curve tokenomics, reward distribution, and governance mechanisms.',
+        challenge: 'DeFi protocols need secure, efficient smart contracts with complex tokenomics.',
+        solution: 'Developed Solidity smart contracts with bonding curves, staking, and governance.',
+        architecture: `Solidity Contracts
+    ↓
+Hardhat Testing
+    ↓
+EVM Deployment
+    ↓
+Frontend Integration`,
+        tech: ['Solidity', 'Hardhat', 'Ethers.js', 'TypeScript'],
+        features: ['Bonding curves', 'Staking', 'Reward distribution', 'Governance'],
+        metrics: ['DeFi protocol', 'Smart contracts'],
+        links: { live: null, github: 'https://github.com/Ajemark/gdk_contracts', private: false }
+      },
+      {
+        id: 'magnitron',
+        name: 'Magnitron',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Voting and governance platform with smart contract integration. Decentralized decision-making for communities.',
+        challenge: 'Communities need transparent, on-chain voting with gas-efficient execution.',
+        solution: 'Built a voting platform with smart contract integration and decentralized governance.',
+        architecture: `React Frontend
+    ↓
+Voting API
+    ↓
+Smart Contracts
+    ↓
+Blockchain`,
+        tech: ['React', 'TypeScript', 'Solidity', 'Web3.js'],
+        features: ['On-chain voting', 'Governance', 'Delegation', 'Proposal management'],
+        metrics: ['Governance platform', 'Smart contracts'],
+        links: { live: null, github: 'https://github.com/Ajemark/voting_app', private: false }
+      },
+      {
+        id: 'moyo-pay',
+        name: 'Moyo Pay',
+        category: 'fintech',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Fintech payment platform for digital transactions. Secure payments, wallet management, and transaction tracking.',
+        challenge: 'Building a secure, user-friendly payment platform for digital transactions.',
+        solution: 'Developed a fintech platform with secure payments and wallet management.',
+        architecture: `Next.js Frontend
+    ↓
+Payment API
+    ↓
+Wallet Service
+    ↓
+Database`,
+        tech: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
+        features: ['Secure payments', 'Wallet management', 'Transaction tracking', 'User dashboard'],
+        metrics: ['Live fintech', 'Payment platform'],
+        links: { live: 'https://moyopay.io', github: 'https://github.com/moyopay', private: false }
+      },
+      {
+        id: 'nursify',
+        name: 'Nursify',
+        category: 'mobile',
+        niche: 'healthcare',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Healthcare management platform for nurses and medical professionals. Scheduling, patient tracking, and resource management.',
+        challenge: 'Healthcare professionals need efficient tools for scheduling and patient management.',
+        solution: 'Built a healthcare platform with scheduling, tracking, and resource management.',
+        architecture: `React Native App
+    ↓
+Healthcare API
+    ↓
+Database
+    ↓
+Notification Service`,
+        tech: ['React Native', 'TypeScript', 'Node.js', 'PostgreSQL'],
+        features: ['Nurse scheduling', 'Patient tracking', 'Resource management', 'Notifications'],
+        metrics: ['Healthcare', 'Mobile platform'],
+        links: { live: null, github: 'https://github.com/Ajemark/nursify', private: false }
+      },
+      {
+        id: 'xerdocs',
+        name: 'Xerdocs HMS',
+        category: 'fullstack',
+        niche: 'healthcare',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Hospital Management System (HMS) for healthcare facilities. Patient records, billing, inventory, and staff management.',
+        challenge: 'Hospitals need integrated systems for records, billing, and operations.',
+        solution: 'Developed a comprehensive HMS with patient records, billing, and staff management.',
+        architecture: `Web Dashboard
+    ↓
+HMS API
+    ↓
+Database
+    ↓
+Reporting`,
+        tech: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
+        features: ['Patient records', 'Billing', 'Inventory', 'Staff management', 'Reporting'],
+        metrics: ['Hospital system', 'Full-stack'],
+        links: { live: null, github: 'https://github.com/XerdocsNG/XerdocsHMS', private: false }
+      },
+      {
+        id: 'chad-nft',
+        name: 'Chad NFT Bot',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'NFT trading and sniping bot with automated minting, rarity tracking, and marketplace integration.',
+        challenge: 'NFT traders need automation for minting, tracking, and sniping opportunities.',
+        solution: 'Built an NFT bot with automated minting, rarity tracking, and marketplace alerts.',
+        architecture: `Telegram Bot
+    ↓
+NFT Engine
+    ↓
+Marketplace APIs
+    ↓
+Blockchain RPC`,
+        tech: ['TypeScript', 'Node.js', 'NFT APIs', 'Web3.js'],
+        features: ['Auto-minting', 'Rarity tracking', 'Marketplace alerts', 'Portfolio tracking'],
+        metrics: ['NFT automation', 'Trading bot'],
+        links: { live: null, github: 'https://github.com/Ajemark/chadNFT', private: false }
+      },
+      {
+        id: 'prinz',
+        name: 'Prinz',
+        category: 'fullstack',
+        niche: 'ecommerce',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'E-commerce platform with product catalog, cart, checkout, and order management. Modern Next.js frontend.',
+        challenge: 'Building a performant, modern e-commerce experience.',
+        solution: 'Developed a Next.js e-commerce platform with full shopping experience.',
+        architecture: `Next.js Frontend
+    ↓
+E-commerce API
+    ↓
+Payment Gateway
+    ↓
+Database`,
+        tech: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
+        features: ['Product catalog', 'Shopping cart', 'Checkout', 'Order management'],
+        metrics: ['E-commerce', 'Live platform'],
+        links: { live: 'https://prinz-ng.vercel.app', github: 'https://github.com/Ajemark/prinz_ng', private: false }
+      },
+      {
+        id: 'bybit-bot',
+        name: 'Bybit-Bot',
+        category: 'fintech',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Automated trading bot for Bybit exchange. Real-time market analysis, signal generation, and trade execution.',
+        challenge: 'Crypto traders need automated tools for market analysis and execution.',
+        solution: 'Built a trading bot with real-time analysis and automated execution.',
+        architecture: `Trading Engine
+    ↓
+Bybit API
+    ↓
+Market Analyzer
+    ↓
+Alert System`,
+        tech: ['TypeScript', 'Node.js', 'Bybit API', 'Redis'],
+        features: ['Real-time analysis', 'Auto-trading', 'Signal generation', 'Risk management'],
+        metrics: ['Trading bot', 'Bybit integration'],
+        links: { live: null, github: 'https://github.com/Ajemark/trading_bot', private: false }
+      },
+      {
+        id: 'zend',
+        name: 'Zend Bot',
+        category: 'ai',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'AI-powered financial automation bot for payment processing and transaction management.',
+        challenge: 'Automating financial processes with AI while maintaining security.',
+        solution: 'Developed an AI bot for payment automation and transaction management.',
+        architecture: `AI Engine
+    ↓
+Payment API
+    ↓
+Transaction Service
+    ↓
+Database`,
+        tech: ['TypeScript', 'Node.js', 'AI/ML', 'PostgreSQL'],
+        features: ['Payment automation', 'Transaction management', 'AI insights', 'Reporting'],
+        metrics: ['Fintech AI', 'Automation'],
+        links: { live: 'https://zendpay.xyz', github: null, private: true }
+      },
+      {
+        id: 'pumpfun-bundler',
+        name: 'Pump.fun Bundler',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Token launch bundler for Pump.fun platform. Automated token creation, liquidity provision, and launch mechanics.',
+        challenge: 'Token creators need streamlined tools for launching on Pump.fun.',
+        solution: 'Built a bundler for automated token creation and launch on Pump.fun.',
+        architecture: `Bundler Frontend
+    ↓
+Launch Engine
+    ↓
+Solana RPC
+    ↓
+Token Contracts`,
+        tech: ['TypeScript', 'Solana', 'Web3.js', 'Node.js'],
+        features: ['Token creation', 'Liquidity provision', 'Auto-launch', 'Bundling'],
+        metrics: ['Token launcher', 'Solana'],
+        links: { live: null, github: 'https://github.com/Ajemark/atomic_token_launcher', private: false }
+      },
+      {
+        id: 'sheda',
+        name: 'Sheda Solution',
+        category: 'fullstack',
+        niche: 'proptech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'PropTech platform for property management and real estate solutions. Listings, tenant management, and payments.',
+        challenge: 'Property managers need integrated tools for listings, tenants, and payments.',
+        solution: 'Built a PropTech platform with property management and payment features.',
+        architecture: `Web Platform
+    ↓
+Property API
+    ↓
+Payment Service
+    ↓
+Database`,
+        tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+        features: ['Property listings', 'Tenant management', 'Rent payments', 'Maintenance tracking'],
+        metrics: ['PropTech', 'Real estate'],
+        links: { live: null, github: 'https://github.com/yuslove1/Sheda-solution', private: false }
+      },
+      {
+        id: 'sastreria',
+        name: 'Sastreria Manuel Fernandez',
+        category: '3d',
+        niche: 'ecommerce',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: '3D e-commerce platform for bespoke tailoring. Interactive 3D garment visualization and custom ordering.',
+        challenge: 'Tailoring businesses need 3D visualization for custom garments.',
+        solution: 'Built a 3D e-commerce platform with interactive garment visualization.',
+        architecture: `3D Frontend
+    ↓
+E-commerce API
+    ↓
+3D Renderer
+    ↓
+Database`,
+        tech: ['Next.js', 'Three.js', 'TypeScript', 'PostgreSQL'],
+        features: ['3D garment preview', 'Custom ordering', 'Measurement tools', 'Checkout'],
+        metrics: ['3D commerce', 'Tailoring'],
+        links: { live: 'http://sastreria-five.vercel.app', github: 'https://github.com/RyvoDigital/sastreria-manuel-fernandez', private: false }
+      },
+      {
+        id: 'nutraspices',
+        name: 'Nutraspices',
+        category: 'fullstack',
+        niche: 'ecommerce',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'E-commerce platform for nutritional spices and health food products. Product catalog, subscription model, and health content.',
+        challenge: 'Health food brands need e-commerce with educational content and subscriptions.',
+        solution: 'Developed an e-commerce platform with product catalog and health content.',
+        architecture: `Next.js Frontend
+    ↓
+E-commerce API
+    ↓
+CMS
+    ↓
+Stripe`,
+        tech: ['Next.js', 'TypeScript', 'Stripe', 'CMS'],
+        features: ['Product catalog', 'Subscriptions', 'Health content', 'Checkout'],
+        metrics: ['E-commerce', 'Health food'],
+        links: { live: 'https://nutraspices-nu.vercel.app', github: null, private: true }
+      },
+      {
+        id: 'mental-maze',
+        name: 'Mental Maze',
+        category: 'game',
+        niche: 'gaming',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Decentralized puzzle protocol on Aurora (NEAR). Smart contracts for puzzle generation, verification, and reward distribution.',
+        challenge: 'Creating a decentralized puzzle game with fair reward distribution.',
+        solution: 'Built a puzzle protocol with smart contracts for generation, verification, and rewards.',
+        architecture: `Game Frontend
+    ↓
+Puzzle Engine
+    ↓
+Aurora Contracts
+    ↓
+Reward Distribution`,
+        tech: ['Solidity', 'React', 'Aurora', 'Web3.js'],
+        features: ['Puzzle generation', 'On-chain verification', 'Reward distribution', 'Infinite variations'],
+        metrics: ['Aurora Chain', 'Puzzle Protocol'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'blue-norva',
+        name: 'Blue Norva',
+        category: 'game',
+        niche: 'gaming',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Blockchain staking game on planet NorvaPrime. Web3 staking mechanics, resource mining, and reward distribution.',
+        challenge: 'Building an engaging staking game with resource management and rewards.',
+        solution: 'Created a staking game with resource mining and reward mechanics.',
+        architecture: `Game UI
+    ↓
+Staking Engine
+    ↓
+Smart Contracts
+    ↓
+Blockchain`,
+        tech: ['Solidity', 'React', 'Web3.js'],
+        features: ['Staking mechanics', 'Resource mining', 'Reward distribution', 'Planet exploration'],
+        metrics: ['Web3 Gaming', 'Staking'],
+        links: { live: 'https://norva-blue.vercel.app', github: null, private: true }
+      },
+      {
+        id: 'novaspire',
+        name: 'NovaSpire',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Web3 trading platform with advanced analytics, portfolio tracking, and multi-exchange integration.',
+        challenge: 'Traders need unified analytics across multiple exchanges and chains.',
+        solution: 'Built a trading platform with analytics, tracking, and multi-exchange support.',
+        architecture: `Trading Dashboard
+    ↓
+Analytics Engine
+    ↓
+Exchange APIs
+    ↓
+Blockchain`,
+        tech: ['TypeScript', 'React', 'Web3.js', 'Node.js'],
+        features: ['Advanced analytics', 'Portfolio tracking', 'Multi-exchange', 'Real-time data'],
+        metrics: ['Web3 Trading', 'Analytics'],
+        links: { live: null, github: 'https://github.com/nearlabdotfun/novaspire', private: false }
+      },
+      {
+        id: 'artreus',
+        name: 'Artreus',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'NFT launchpad and marketplace platform. Minting, trading, and collection management for digital art.',
+        challenge: 'Artists need accessible tools for minting and selling NFTs.',
+        solution: 'Built an NFT launchpad with minting, trading, and collection features.',
+        architecture: `Marketplace Frontend
+    ↓
+NFT API
+    ↓
+Smart Contracts
+    ↓
+IPFS`,
+        tech: ['React', 'Solidity', 'IPFS', 'Web3.js'],
+        features: ['NFT minting', 'Trading', 'Collection management', 'Royalties'],
+        metrics: ['NFT platform', 'Launchpad'],
+        links: { live: null, github: 'https://github.com/Ajemark/artreus-launchpad-1', private: false }
+      },
+      {
+        id: 'aerodash',
+        name: 'AeroDash',
+        category: '3d',
+        niche: 'enterprise',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: '3D dashboard for enterprise data visualization. Interactive 3D charts, real-time metrics, and customizable widgets.',
+        challenge: 'Enterprises need engaging ways to visualize complex data.',
+        solution: 'Built a 3D dashboard with interactive visualization and real-time metrics.',
+        architecture: `3D Dashboard
+    ↓
+Data API
+    ↓
+3D Renderer
+    ↓
+Real-time Engine`,
+        tech: ['React', 'Three.js', 'TypeScript', 'WebSockets'],
+        features: ['3D charts', 'Real-time metrics', 'Customizable widgets', 'Data visualization'],
+        metrics: ['3D Dashboard', 'Enterprise'],
+        links: { live: 'https://aerodash-ten.vercel.app', github: 'https://github.com/Ajemark/aerodash', private: false }
+      },
+      {
+        id: 'ascension',
+        name: 'Ascension Protocol',
+        category: 'game',
+        niche: 'metaverse',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Metaverse protocol with virtual world interactions, asset ownership, and decentralized governance.',
+        challenge: 'Building a metaverse with asset ownership and governance.',
+        solution: 'Developed a metaverse protocol with virtual interactions and decentralized features.',
+        architecture: `Metaverse Frontend
+    ↓
+World Engine
+    ↓
+Asset Contracts
+    ↓
+Governance`,
+        tech: ['TypeScript', 'Solidity', 'Three.js', 'Web3.js'],
+        features: ['Virtual worlds', 'Asset ownership', 'Decentralized governance', 'Avatar system'],
+        metrics: ['Metaverse', 'Protocol'],
+        links: { live: null, github: 'https://github.com/Ajemark/ascensiondao', private: false }
+      },
+      {
+        id: 'towerswap',
+        name: 'TowerSwap Interface',
+        category: 'defi',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'DeFi DEX interface for token swapping, liquidity provision, and yield farming.',
+        challenge: 'DeFi users need intuitive interfaces for swapping and liquidity management.',
+        solution: 'Built a DEX interface with swapping, liquidity, and yield features.',
+        architecture: `DEX Frontend
+    ↓
+Router Contracts
+    ↓
+Liquidity Pools
+    ↓
+Yield Engine`,
+        tech: ['React', 'TypeScript', 'Solidity', 'Ethers.js'],
+        features: ['Token swapping', 'Liquidity provision', 'Yield farming', 'Slippage protection'],
+        metrics: ['DeFi', 'DEX'],
+        links: { live: null, github: 'https://github.com/Ajemark/TowerSwap-Interface', private: false }
+      },
+      {
+        id: 'badger-access',
+        name: 'Badger Access Bot',
+        category: 'ai',
+        niche: 'social',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'AI-powered access control and community management bot for the Badger ecosystem.',
+        challenge: 'Managing community access and roles in Telegram groups.',
+        solution: 'Built a Python bot for automated role assignment and membership verification.',
+        architecture: `Telegram API
+    ↓
+Python Bot
+    ↓
+Access Control
+    ↓
+Database`,
+        tech: ['Python', 'Telegram Bot API', 'SQLite'],
+        features: ['Role assignment', 'Membership verification', 'Engagement tracking', 'Access control'],
+        metrics: ['Python', 'Telegram Bot'],
+        links: { live: null, github: 'https://github.com/Ajemark/badger_access_bot', private: false }
+      },
+      {
+        id: 'gdk-frontend',
+        name: 'GDK Frontend',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Frontend Developer',
+        status: 'Live',
+        overview: 'Frontend interface for the GDK staking and DeFi protocol. Web3 dashboard for staking, rewards tracking, and governance.',
+        challenge: 'DeFi protocols need intuitive, secure frontends for complex interactions.',
+        solution: 'Built a comprehensive Web3 dashboard with staking, rewards, and governance.',
+        architecture: `React Frontend
+    ↓
+Web3 Provider
+    ↓
+GDK Contracts
+    ↓
+Blockchain`,
+        tech: ['TypeScript', 'React', 'Wagmi', 'Ethers.js'],
+        features: ['Staking dashboard', 'Rewards tracking', 'Governance voting', 'Wallet integration'],
+        metrics: ['TypeScript', 'DeFi UI'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'kim-gate',
+        name: 'KIM Gate Discord',
+        category: 'ai',
+        niche: 'social',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Discord integration layer for the KIM Bot Suite. Token-gated access and community management.',
+        challenge: 'Discord communities need automated access control and moderation.',
+        solution: 'Built a Discord bot for token-gated access and community automation.',
+        architecture: `Discord API
+    ↓
+Bot Engine
+    ↓
+KIM API
+    ↓
+Blockchain`,
+        tech: ['TypeScript', 'Discord.js', 'Web3', 'Node.js'],
+        features: ['Token-gated access', 'Role management', 'AI moderation', 'Community analytics'],
+        metrics: ['TypeScript', 'Discord Bot'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'badger-nft',
+        name: 'Badger NFT Bot',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'NFT-focused automation bot for the Badger ecosystem. Minting alerts, rarity tracking, and trading signals.',
+        challenge: 'NFT collectors need real-time alerts and automated tracking.',
+        solution: 'Built an NFT bot with alerts, rarity tracking, and trading signals.',
+        architecture: `NFT APIs
+    ↓
+Bot Engine
+    ↓
+Analysis Layer
+    ↓
+Alert System`,
+        tech: ['TypeScript', 'NFT APIs', 'Telegram Bot API', 'Redis'],
+        features: ['Minting alerts', 'Rarity tracking', 'Floor monitoring', 'Trading signals'],
+        metrics: ['TypeScript', 'NFT Automation'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'tychicus',
+        name: 'Tychicus / ClawdBot',
+        category: 'ai',
+        niche: 'automation',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'ClawdBot implementation for automated Web3 interactions. AI-driven bot infrastructure for on-chain operations.',
+        challenge: 'Automating Web3 operations across multiple protocols and chains.',
+        solution: 'Built a modular bot infrastructure for on-chain automation and community management.',
+        architecture: `Bot Engine
+    ↓
+Strategy Layer
+    ↓
+Protocol Connectors
+    ↓
+Blockchain Nodes`,
+        tech: ['TypeScript', 'Web3.js', 'Node.js', 'Redis'],
+        features: ['Multi-chain support', 'Strategy engine', 'Risk management', 'Analytics'],
+        metrics: ['Multi-chain', 'Automation'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'social-app',
+        name: 'Social App',
+        category: 'fullstack',
+        niche: 'social',
+        role: 'Full-Stack Developer',
+        status: 'Live',
+        overview: 'Full-stack social networking platform with real-time messaging, content feeds, and user engagement.',
+        challenge: 'Building a scalable social platform with real-time features.',
+        solution: 'Developed a complete social platform with messaging, feeds, and engagement features.',
+        architecture: `React Frontend
+    ↓
+REST API
+    ↓
+Database
+    ↓
+WebSocket Server`,
+        tech: ['JavaScript', 'Node.js', 'React', 'Socket.io'],
+        features: ['Real-time chat', 'Content feeds', 'Media sharing', 'Push notifications'],
+        metrics: ['JavaScript', 'Full-Stack'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'birb-task',
+        name: 'Birb Task',
+        category: 'web3',
+        niche: 'social',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'Task-based engagement platform for the Birb ecosystem. Users complete tasks to earn rewards.',
+        challenge: 'Driving community engagement through task completion and rewards.',
+        solution: 'Built a task platform with verification and automated reward distribution.',
+        architecture: `React Frontend
+    ↓
+Task API
+    ↓
+Verification Layer
+    ↓
+Blockchain`,
+        tech: ['TypeScript', 'React', 'Web3', 'Node.js'],
+        features: ['On-chain tasks', 'Off-chain tasks', 'Automated rewards', 'Leaderboards'],
+        metrics: ['TypeScript', 'Task Platform'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'birb-minter',
+        name: 'Birb Minter',
+        category: 'web3',
+        niche: 'ecommerce',
+        role: 'Solo Developer',
+        status: 'Live',
+        overview: 'NFT minting platform for the Birb ecosystem. Custom minting mechanics and launchpad features.',
+        challenge: 'NFT creators need flexible minting tools with fair distribution.',
+        solution: 'Built an NFT minter with custom mechanics, whitelist management, and launchpad.',
+        architecture: `React Frontend
+    ↓
+Minter API
+    ↓
+Smart Contracts
+    ↓
+Blockchain`,
+        tech: ['TypeScript', 'Solidity', 'React', 'Hardhat'],
+        features: ['Multi-phase minting', 'Dynamic pricing', 'Reveal mechanics', 'Royalty enforcement'],
+        metrics: ['TypeScript', 'NFT Minter'],
+        links: { live: null, github: 'https://github.com/Ajemark/birbminter', private: false }
+      }
+    ];
+
+    function renderTOC() {
+      const toc = document.getElementById('toc');
+      toc.innerHTML = caseStudies.map((c, i) => `
+        <a href="#${c.id}" class="uc-toc-item">
+          <span class="num">${i + 1}</span>${c.name}
+        </a>
+      `).join('');
+    }
+
+    function renderCases() {
+      const container = document.getElementById('cases');
+      container.innerHTML = caseStudies.map(c => {
+        const links = [];
+        if (c.links.live) links.push(`<a href="${c.links.live}" target="_blank">Live Demo →</a>`);
+        if (c.links.github) links.push(`<a href="${c.links.github}" target="_blank">GitHub →</a>`);
+        if (c.links.private) links.push(`<span style="color:#78716c;font-size:0.875rem;">🔒 Private Repo</span>`);
+
+        return `
+        <section class="uc-section" id="${c.id}">
+          <div class="uc-header">
+            <h2>${c.name}</h2>
+            <div class="uc-badges">
+              <span class="uc-badge uc-badge-${c.category}">${c.category.toUpperCase()}</span>
+              <span class="uc-badge uc-badge-${c.niche}">${c.niche.toUpperCase()}</span>
+            </div>
+          </div>
+          <div class="uc-meta">
+            <span>👤 ${c.role}</span>
+            <span>📊 ${c.status}</span>
+          </div>
+          <div class="uc-block">
+            <h3>Overview</h3>
+            <p>${c.overview}</p>
+          </div>
+          <div class="uc-block">
+            <h3>Challenge</h3>
+            <p>${c.challenge}</p>
+          </div>
+          <div class="uc-block">
+            <h3>Solution</h3>
+            <p>${c.solution}</p>
+          </div>
+          <div class="uc-block">
+            <h3>Architecture</h3>
+            <div class="uc-arch">${c.architecture}</div>
+          </div>
+          <div class="uc-block">
+            <h3>Technologies</h3>
+            <div class="uc-tech">${c.tech.map(t => `<span>${t}</span>`).join('')}</div>
+          </div>
+          <div class="uc-block">
+            <h3>Key Features</h3>
+            <ul>${c.features.map(f => `<li>${f}</li>`).join('')}</ul>
+          </div>
+          <div class="uc-block">
+            <h3>Metrics</h3>
+            <div class="uc-tech">${c.metrics.map(m => `<span>${m}</span>`).join('')}</div>
+          </div>
+          <div class="uc-links">
+            ${links.join('')}
+          </div>
+        </section>
+        `;
+      }).join('');
+    }
+
+    renderTOC();
+    renderCases();
+  </script>
+
+</body>
+</html>
