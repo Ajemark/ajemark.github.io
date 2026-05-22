@@ -631,6 +631,7 @@ img { max-width: 100%; display: block; }
 }
 
 .project-header {
+  flex-wrap: wrap;
   position: relative;
   display: flex;
   justify-content: space-between;
