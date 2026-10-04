@@ -417,21 +417,21 @@ Notification Service`,
         name: 'Xerdocs HMS',
         category: 'fullstack',
         niche: 'healthcare',
-        role: 'Solo Developer',
-        status: 'Live',
-        overview: 'Hospital Management System (HMS) for healthcare facilities. Patient records, billing, inventory, and staff management.',
+        role: 'Full-Stack Developer & Current HMS Maintainer',
+        status: 'Active development / testing',
+        overview: 'Multi-tenant Hospital Management System for healthcare facilities. Built and continue to maintain its Dental Clinic module alongside patient records, appointments, billing, pharmacy, laboratory, radiology, and staff operations.',
         challenge: 'Hospitals need integrated systems for records, billing, and operations.',
-        solution: 'Developed a comprehensive HMS with patient records, billing, and staff management.',
-        architecture: `Web Dashboard
+        solution: 'Extended the HMS with a dental-clinic workflow: FDI charting, treatment planning, payment-before-treatment controls, clinical voice notes, and role-based operations for front desk and clinicians.',
+        architecture: `CodeIgniter HMVC Dashboard
     ↓
-HMS API
+PHP Controllers & Models
     ↓
-Database
+MySQL Multi-tenant Database
     ↓
-Reporting`,
-        tech: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
-        features: ['Patient records', 'Billing', 'Inventory', 'Staff management', 'Reporting'],
-        metrics: ['Hospital system', 'Full-stack'],
+Bootstrap / jQuery Interface`,
+        tech: ['PHP', 'CodeIgniter 3', 'MySQL', 'Bootstrap', 'jQuery', 'DataTables', 'Ion Auth'],
+        features: ['Patient records and appointments', 'Interactive FDI dental chart', 'Treatment plans and payment-gated workflow', 'Voice-assisted clinical notes', 'Billing, pharmacy, lab and radiology operations', 'Role-based hospital access'],
+        metrics: ['16 dental data tables', 'Active HMS maintenance', 'Healthcare operations platform'],
         links: { live: null, github: 'https://github.com/XerdocsNG/XerdocsHMS', private: false }
       },
       {
@@ -1027,6 +1027,138 @@ Database`,
         tech: ['Next.js', 'TypeScript', 'AI', 'PostgreSQL'],
         features: ['Trade tracking', 'AI insights', 'Portfolio management', 'Trend analysis'],
         metrics: ['TypeScript', 'Fintech'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'ramper',
+        name: 'Ramper',
+        category: 'fintech',
+        niche: 'web3',
+        role: 'Full-Stack Developer',
+        status: 'In development',
+        overview: 'Fiat-to-crypto on-ramp aggregator and developer platform that compares provider quotes, routes checkout, and applies a configurable platform fee margin.',
+        challenge: 'Merchants need a single integration for multiple on-ramp providers while retaining control over routing and monetization.',
+        solution: 'Built a monorepo with a parallel quote engine, provider adapters, webhook normalization, API-key controls, developer dashboard, and embeddable checkout widget.',
+        architecture: `Next.js App & Widget
+    ↓
+NestJS / Fastify API
+    ↓
+Provider Adapter Layer
+    ↓
+On-ramp Checkout & Webhooks`,
+        tech: ['Next.js', 'TypeScript', 'NestJS', 'Fastify', 'Tailwind CSS', 'Swagger'],
+        features: ['Live quote comparison', 'Smart provider routing', 'Configurable fee margins', 'Developer API keys', 'Webhook normalization', 'Checkout widget'],
+        metrics: ['Multi-provider on-ramp', 'Developer platform'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'sidecash',
+        name: 'SideCash',
+        category: 'mobile',
+        niche: 'fintech',
+        role: 'Full-Stack Developer',
+        status: 'In development',
+        overview: 'Cross-platform rewards application where users earn points through games, ads, offerwalls, daily streaks, and Telegram Mini App engagement before cashing out through a wallet.',
+        challenge: 'Reward products need a secure way to credit earnings across mobile and Telegram while preventing duplicate claims and fraudulent requests.',
+        solution: 'Built a shared Flutter app and TypeScript API with server-confirmed reward crediting, session authentication, rate limits, cashout flows, and Telegram webhook support.',
+        architecture: `Flutter Mobile App & Telegram Mini App
+    ↓
+Express API
+    ↓
+PostgreSQL & Redis
+    ↓
+Ads, Offerwall & Telegram Webhooks`,
+        tech: ['Flutter', 'Dart', 'Riverpod', 'Node.js', 'Express', 'TypeScript', 'PostgreSQL', 'Redis'],
+        features: ['Cash Crush game', 'Daily reward and streak system', 'Offerwall webhooks', 'Wallet and cashout', 'Google and Telegram authentication', 'Server-verified reward crediting'],
+        metrics: ['Android, iOS & Telegram', 'One shared codebase'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'prism',
+        name: 'PRISM',
+        category: 'ai',
+        niche: 'healthcare',
+        role: 'Product Engineer',
+        status: 'Demo available',
+        overview: 'Demo-ready Monitoring, Evaluation and Learning programme-intelligence platform designed for NGOs, UN agencies, and government programme teams, beginning with health-systems-strengthening workflows.',
+        challenge: 'Programme teams need a structured way to maintain project evidence, assess risks and compliance, and prepare narratives for human review.',
+        solution: 'Created an interactive six-workspace prototype covering logframes, indicators, AI-assisted narratives, gap scanning, risk hierarchy, audit trails, and review-ready exports.',
+        architecture: `Next.js Workspace
+    ↓
+Client-side Programme Data
+    ↓
+Analysis & Review Flows
+    ↓
+Export-ready Outputs`,
+        tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS'],
+        features: ['Project portfolio dashboard', 'Logframe hierarchy', 'Indicator tracking', 'AI narrative treatment', 'Gap and risk scanner', 'Human-review workflow'],
+        metrics: ['Six-tab workspace', 'Programme intelligence prototype'],
+        links: { live: null, github: null, private: false }
+      },
+      {
+        id: 'valiidea',
+        name: 'Valiidea',
+        category: 'ai',
+        niche: 'web2',
+        role: 'Full-Stack Developer',
+        status: 'Demo available',
+        overview: 'Demo-ready co-creation and startup-idea validation platform that turns survey respondents into early advisors through focused discovery flows, voice notes, pricing research, and founder outreach.',
+        challenge: 'Conventional surveys frequently produce polite feedback rather than evidence of real customer problems and willingness to pay.',
+        solution: 'Built guided one-question-at-a-time interviews, browser voice-note capture, a validation-health score, and a lightweight founder CRM for review and outreach.',
+        architecture: `Next.js Experience
+    ↓
+Validation & Scoring Layer
+    ↓
+Browser Audio Capture
+    ↓
+Founder Discovery CRM`,
+        tech: ['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Google Gemini', 'Web Audio API', 'MediaRecorder'],
+        features: ['Guided validation surveys', 'Voice-note capture and playback', 'Willingness-to-pay discovery', 'Validation health score', 'Founder CRM', 'WhatsApp, email and phone outreach'],
+        metrics: ['AI-assisted validation', 'Audio-first customer discovery'],
+        links: { live: null, github: 'https://github.com/Ajemark/valiidea', private: false }
+      },
+      {
+        id: 'hoodsnipebot',
+        name: 'HoodSnipeBot',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Full-Stack Developer',
+        status: 'In development',
+        overview: 'Non-custodial, multi-chain Telegram trading bot with safety analysis, paper trading, copy trading, automated execution, and portfolio tooling across EVM and Solana routes.',
+        challenge: 'Automated trading needs fast execution while making token-risk checks, paper testing, wallet controls, and chain-specific routing understandable to users.',
+        solution: 'Built a modular TypeScript bot with on-chain and market-data scanning, smart-account support, paper-mode analytics, automated exit strategies, PnL cards, and Telegram command workflows.',
+        architecture: `Telegram Bot & Web Simulator
+    ↓
+Trading, Safety & Discovery Services
+    ↓
+EVM / Solana Integrations
+    ↓
+MongoDB & Market Data`,
+        tech: ['TypeScript', 'Node.js', 'Telegram Bot API', 'Solana', 'Base', 'ERC-4337', 'MongoDB'],
+        features: ['Paper-mode sniping', 'Token safety analysis', 'Copy trading', 'Auto-sell triggers', 'Cross-chain routing', 'PNL image cards'],
+        metrics: ['Multi-chain execution', 'Non-custodial design'],
+        links: { live: null, github: null, private: true }
+      },
+      {
+        id: 'racerbot',
+        name: 'RacerBot',
+        category: 'web3',
+        niche: 'fintech',
+        role: 'Full-Stack Developer',
+        status: 'In development',
+        overview: 'Non-custodial automated NEAR trading bot with Telegram and Mini App interfaces, token/pool detection, scoped-access-key execution, and configurable risk triggers.',
+        challenge: 'Traders need automation without surrendering full wallet control or compromising reliability during time-sensitive launches.',
+        solution: 'Designed separate detection, execution, trigger, and API services around scoped function-call access keys, fail-closed safety checks, multi-RPC resilience, and atomic fee handling.',
+        architecture: `Telegram Bot & Mini App
+    ↓
+API, Detector, Executor & Trigger Services
+    ↓
+NEAR Smart Contract
+    ↓
+PostgreSQL & Multiple RPC Providers`,
+        tech: ['TypeScript', 'Node.js', 'Rust', 'NEAR SDK', 'PostgreSQL', 'Telegram Mini Apps'],
+        features: ['Non-custodial key model', 'New-pool detection', 'Stop-loss and take-profit triggers', 'Fail-closed rug checks', 'Multi-RPC support', 'Atomic in-contract fees'],
+        metrics: ['Four-service architecture', 'Scoped access-key security'],
         links: { live: null, github: null, private: true }
       }
     ];
